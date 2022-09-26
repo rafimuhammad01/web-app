@@ -6,14 +6,10 @@ import (
 	"os"
 )
 
-const (
-	DEFAULT_PORT = "8080"
-)
-
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = DEFAULT_PORT
+		port = "8080"
 	}
 
 	server := http.Server{
@@ -21,11 +17,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
-
-	http.HandleFunc("/rafi", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, Rafi!"))
+		w.Write([]byte("Hello World!!"))
 	})
 
 	log.Printf("Server running on %s", server.Addr)
