@@ -24,6 +24,10 @@ func main() {
 		w.Write([]byte("Hello, World!"))
 	})
 
+	http.HandleFunc("/rafi", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello, Rafi!"))
+	})
+
 	log.Printf("Server running on %s", server.Addr)
 	err := server.ListenAndServe()
 	if err != nil {
